@@ -1,9 +1,9 @@
 import express from 'express'
-import dotenev from 'dotenv'
+import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import urlRoutes from './routes/url.js'
-dotenev.config()
+dotenv.config()
 
 
 const app = express()
