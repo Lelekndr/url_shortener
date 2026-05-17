@@ -1,2 +1,41 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap');
+
+body {
+  background: #080c14;
+  margin: 0;
+}
+
+.url-input::placeholder {
+  color: #2d4060;
+}
+
+.url-input:focus {
+  border-color: #63d3a8;
+  box-shadow: 0 0 0 3px rgba(99, 211, 168, 0.08);
+}
+
+.result-card {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.result-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #080c14;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

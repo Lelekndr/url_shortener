@@ -21,7 +21,7 @@ router.post("/shorten", async (req, res) => {
         // Checa se a URL já foi encurtada antes
         const existing = await Url.findOne({ originalUrl })
         if (existing) {
-            return res.json({ shortUrl: `${process.env.FRONTEND_URL}/${existing.shortId}` })
+            return res.json({ shortUrl: `${process.env.BASE_URL}/${existing.shortId}` })
         }
 
         let shortId
@@ -33,7 +33,7 @@ router.post("/shorten", async (req, res) => {
         }
 
         const url = await Url.create({ shortId, originalUrl })
-        res.status(201).json({ shortUrl: `${process.env.FRONTEND_URL}/${url.shortId}` })
+        res.status(201).json({ shortUrl: `${process.env.BASE_URL}/${url.shortId}` })
 
     } catch (err) {
         console.error(err)
